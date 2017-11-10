@@ -1,3 +1,3 @@
 #!/bin/python
 from amtracker import amtracker
-amtracker.run()
+amtracker.run(port=80)
