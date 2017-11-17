@@ -11,9 +11,9 @@ while True:
     ser.write('1:%d' % int(data['motor1']))
     print('1:%d' % int(data['motor1']))
     print(ser.readline())
-    sleep(3)
+    sleep(.1)
     ser.write('2:%d' % int(data['motor2']))
     print('2:%d' % int(data['motor2']))
     print(ser.readline())
-    sleep(3)
+    sleep(1)
 
