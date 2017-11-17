@@ -9,8 +9,10 @@ while True:
     r = urlopen('http://demo.mkhrenov.com/state')
     data = json.loads(r.read().decode(r.info().get_param('charset') or 'utf-8'))
     ser.write(bytes('1:%d' % int(data['motor1']), 'ascii'))
+    print(bytes('1:%d' % int(data['motor1']), 'ascii'))
     sleep(.01)
     ser.write(bytes('2:%d' % int(data['motor2']), 'ascii'))
-    sleep(.25)
+    print(bytes('2:%d' % int(data['motor2']), 'ascii'))
+    sleep(1)
 
 
