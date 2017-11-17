@@ -1,4 +1,44 @@
 {% extends "base.html" %}
+{% block script %}
+    <script>
+        function updateMotorState() {
+            var form = document.getElementById('motorForm');
+
+            document.getElementById('updateButton').innerHTML = 'Processing...';
+            var elements = form.elements;
+            for (var i = 0, len = elements.length; i < len; ++i) {
+                elements[i].readOnly = true;
+            }
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    var elements = form.elements;
+                    for (var i = 0, len = elements.length; i < len; ++i) {
+                        elements[i].readOnly = false;
+                    }
+                    document.getElementById('updateButton').innerHTML = 'Update';
+                }
+            }
+
+            xhttp.open('POST', 'update', true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            var motor1 = document.getElementById('motor1').value;
+            var motor2 = document.getElementById('motor2').value;
+            xhttp.send('motor1=' + motor1 + '&motor2=' + motor2);
+        }
+    </script>
+{% endblock %}
 {% block body %}
-    <p>Hello World!</p>
+    <form id="motorForm" onsubmit="return updateMotorState(this)">
+        <div>
+            <label>Motor 1 State:</label>
+            <input type="number" name="motor1" id="motor1">
+        </div>
+        <div>
+            <label>Motor 2 State:</label>
+            <input type="number" name="motor2" id="motor2">
+        </div>
+    </form>
+    <button onclick="updateMotorState()" id="updateButton">Update</button>
 {% endblock %}
