@@ -4,6 +4,7 @@ from urllib2 import urlopen
 from time import sleep
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
+sleep(3)
 
 while True:
     data = json.load(urlopen('http://demo.mkhrenov.com/state'))
