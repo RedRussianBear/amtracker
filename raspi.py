@@ -6,8 +6,7 @@ from time import sleep
 ser = serial.Serial('/dev/ttyACM0', 9600)
 
 while True:
-    r = urlopen('http://demo.mkhrenov.com/state')
-    data = json.loads(r.read().decode(r.info().get_param('charset') or 'utf-8'))
+    data = json.load(urlopen('http://demo.mkhrenov.com/state'))
     ser.write('1:%d' % int(data['motor1']))
     print('1:%d' % int(data['motor1']))
     sleep(.01)
