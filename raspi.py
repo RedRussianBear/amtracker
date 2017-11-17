@@ -13,5 +13,6 @@ while True:
     ser.write('2:%d' % int(data['motor2']))
     print('1:%d' % int(data['motor1']))
     sleep(1)
+    break
 
 
