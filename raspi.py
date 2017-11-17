@@ -8,11 +8,11 @@ ser = serial.Serial('/dev/ttyACM0', 9600)
 while True:
     data = json.load(urlopen('http://demo.mkhrenov.com/state'))
     ser.write('1:%d' % int(data['motor1']))
-    print('1:%d' % int(data['motor1']))
-    sleep(10)
+    sleep(3)
+    print(ser.readline())
     ser.write('2:%d' % int(data['motor2']))
-    print('1:%d' % int(data['motor1']))
-    sleep(10)
+    sleep(3)
+    print(ser.readline())
     break
 
 
