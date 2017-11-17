@@ -13,6 +13,4 @@ while True:
     ser.write('2:%d' % int(data['motor2']))
     print(ser.readline())
     sleep(3)
-    break
-
 
