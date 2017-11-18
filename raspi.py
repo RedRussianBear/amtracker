@@ -14,6 +14,7 @@ while True:
         ser.write('1:%d' % int(data['motor1']))
     dest1 = int(data['motor1'])
     print('1:%d' % int(data['motor1']))
+    sleep(.1)
     if dest2 != int(data['motor2']):
         ser.write('2:%d' % int(data['motor2']))
     dest2 = int(data['motor2'])
