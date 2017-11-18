@@ -1,3 +1,4 @@
 #!/bin/python
 from amtracker import amtracker
-amtracker.run(host='0.0.0.0', port=80)
+if __name__ == '__main__':
+  amtracker.run(host='0.0.0.0', port=80)
